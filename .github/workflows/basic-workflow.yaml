@@ -1,0 +1,41 @@
+# Creating a basic workflow YAML file
+
+name: Basic Workflow
+
+# 'on' is the trigger
+on: push
+
+# 'jobs' actions to perform
+jobs:
+  # 1st job name: echo-hello
+  echo-hello:
+    # where to run, use 'runs-on'
+    runs-on: ubuntu-latest # image name of the operating system are called as runners
+    # the steps to perform as part of this job
+    steps:
+      # name of the step here is 'Echo ..'
+      - name: Echo Hello from Step 1
+        # what to run in the step is provided in 'run'
+        run: echo "Hello There, from Step 1"
+      # you can add more steps by using the above steps
+      - name: Echo Hello from Step 2
+        # what to run in the step is provided in 'run'
+        run: echo "Hello Again, but from Step 2"
+    
+  # 2nd job name: signing-off
+  signing-off:
+    # where to run, use 'runs-on'
+    runs-on: ubuntu-latest # image name of the operating system are called as runners
+    # the steps to perform as part of this job
+    steps:
+      # name of the step here is 'Echo ..'
+      - name: Sign off from Step 1
+        run: echo "Till we meet again!"
+    # intentionally adding a step that will fail
+    steps:
+      # name of the step here is 'Echo ..'
+      - name: Step that fails
+        run: 
+          echo "This step intentionally fails..."
+          exit 0
+    
