@@ -36,5 +36,5 @@ jobs:
       - name: Step that fails
         run: 
           echo "This step intentionally fails..."
-          exit 0
+          exit 1
     
