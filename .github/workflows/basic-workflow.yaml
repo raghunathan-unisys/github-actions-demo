@@ -3,7 +3,14 @@
 name: Basic Workflow
 
 # 'on' is the trigger
-on: push
+on:
+  # adding the branch in which workflow must be triggered
+  push:
+    branches:
+      - main
+  
+  # Additionally, we can also manually trigger the build using
+  workflow_dispatch: 
 
 # 'jobs' actions to perform
 jobs:
@@ -36,5 +43,5 @@ jobs:
       - name: Step that fails
         run: 
           echo "This step intentionally fails..."
-          exit 1
+          exit 0
     
