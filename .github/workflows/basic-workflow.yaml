@@ -32,7 +32,6 @@ jobs:
       - name: Sign off from Step 1
         run: echo "Till we meet again!"
     # intentionally adding a step that will fail
-    steps:
       # name of the step here is 'Echo ..'
       - name: Step that fails
         run: 
